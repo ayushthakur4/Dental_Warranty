@@ -1,23 +1,18 @@
 import React from 'react';
-import Smile from '../assets/Smile.png';
 import logo from '../assets/Logo.png';
 import watermark from '../assets/watermark.png';
 
 const WarrantyCard = React.forwardRef(({ cardData }, ref) => {
-  // Function to format date as DD/MM/YYYY
   const formatDate = (dateString) => {
     if (!dateString) return '....................';
-    
     try {
       const date = new Date(dateString);
       if (isNaN(date.getTime())) return '....................';
-      
       const day = String(date.getDate()).padStart(2, '0');
       const month = String(date.getMonth() + 1).padStart(2, '0');
       const year = date.getFullYear();
-      
       return `${day}/${month}/${year}`;
-    } catch (error) {
+    } catch {
       return '....................';
     }
   };
@@ -44,21 +39,19 @@ const WarrantyCard = React.forwardRef(({ cardData }, ref) => {
 
       {/* Main Content Area */}
       <div className="relative flex-1 p-2 flex flex-col z-10">
-        {/* Header with Logo at Top */}
+        {/* Header with new text and logo */}
         <div className="flex justify-between items-start mb-2">
           <div className="text-left">
-            <h1 className="text-[11px] font-bold text-blue-800 uppercase tracking-wide">Dental Warranty Certificate</h1>
+            <h1 className="text-[15px] font-bold text-blue-800 uppercase tracking-wide">
+              SSDC
+            </h1>
+            <div className="text-[10px] font-normal text-blue-800 leading-tight">
+              QUALITY FOR BETTER TEETH
+            </div>
             <div className="h-px w-12 bg-blue-300 mt-1"></div>
           </div>
-          <div className="flex items-center text-blue-800 font-bold">
-            <div className="text-right leading-tight flex items-center">
-              <img src={logo} alt="SSDC Logo" className="w-5 h-5 mr-1" />
-              <div>
-                <div className="text-[11px] font-bold">SSDC</div>
-                <div className="text-[8px] font-normal">QUALITY FOR BETTER TEETH</div>
-              </div>
-            </div>
-          </div>
+          {/* Only logo at top right */}
+          <img src={logo} alt="SSDC Logo" className="w-5 h-5" />
         </div>
 
         {/* Patient Information */}
@@ -69,21 +62,21 @@ const WarrantyCard = React.forwardRef(({ cardData }, ref) => {
               {formatDate(cardData.date)}
             </span>
           </div>
-          
+
           <div className="flex items-center">
             <span className="w-16 font-semibold text-gray-700">SL.NO:</span>
             <span className="flex-1 border-b border-dotted border-gray-400 pb-0.5 font-medium text-gray-900">
               {cardData.slNo || '....................'}
             </span>
           </div>
-          
+
           <div className="flex items-center">
             <span className="w-16 font-semibold text-gray-700">Doctor:</span>
             <span className="flex-1 border-b border-dotted border-gray-400 pb-0.5 font-medium text-gray-900">
               {cardData.doctor || '....................'}
             </span>
           </div>
-          
+
           <div className="flex items-center">
             <span className="w-16 font-semibold text-gray-700">Patient:</span>
             <span className="flex-1 border-b border-dotted border-gray-400 pb-0.5 font-medium text-gray-900">
@@ -100,15 +93,15 @@ const WarrantyCard = React.forwardRef(({ cardData }, ref) => {
               {cardData.typeOfWork || '....................'}
             </span>
           </div>
-          
+
           <div className="flex items-center">
             <span className="w-16 font-semibold text-gray-700">Warranty:</span>
             <span className="flex-1 border-b border-dotted border-gray-400 pb-0.5 font-medium text-gray-900">
               {cardData.warranty || '....................'}
             </span>
           </div>
-          
-          {/* Tooth Number Section - Divided into 4 quadrants */}
+
+          {/* Tooth Number Section */}
           <div className="flex items-center col-span-2">
             <span className="w-16 font-semibold text-gray-700">Tooth No:</span>
             <div className="flex-1 flex border border-gray-300 rounded-sm h-6">
