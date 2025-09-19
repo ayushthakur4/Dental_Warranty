@@ -64,7 +64,7 @@ const WarrantyCard = React.forwardRef(({ cardData }, ref) => {
           </div>
 
           <div className="flex items-center">
-            <span className="w-16 font-semibold text-gray-700">SL.NO:</span>
+            <span className="w-16 font-semibold text-gray-700">SR.NO:</span>
             <span className="flex-1 border-b border-dotted border-gray-400 pb-0.5 font-medium text-gray-900">
               {cardData.slNo || '....................'}
             </span>
