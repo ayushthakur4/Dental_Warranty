@@ -1,5 +1,4 @@
 import React from 'react';
-import Smile from '../assets/Smile.png';
 import logo from '../assets/Logo.png';
 import watermark from '../assets/watermark.png';
 
