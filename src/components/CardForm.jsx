@@ -7,14 +7,15 @@ const CardForm = ({ cardData, setCardData }) => {
     setCardData(prevData => ({ ...prevData, [name]: value }));
   };
 
-  const handleToothChange = (quadrant, value) => {
-    // Only allow numbers, commas, and spaces
-    const sanitizedValue = value.replace(/[^0-9,\s]/g, '');
-    setCardData(prevData => ({
-      ...prevData,
-      [quadrant]: sanitizedValue
-    }));
-  };
+ const handleToothChange = (quadrant, value) => {
+  // Allow numbers, commas, spaces, and hyphens
+  const sanitizedValue = value.replace(/[^0-9,\s-]/g, '');
+  setCardData(prevData => ({
+    ...prevData,
+    [quadrant]: sanitizedValue
+  }));
+};
+
 
   const formFields = [
     { 
@@ -25,7 +26,7 @@ const CardForm = ({ cardData, setCardData }) => {
       icon: <FaCalendarAlt className="text-blue-500" />
     },
     { 
-      label: "SL.NO", 
+      label: "SR.NO", 
       name: "slNo", 
       type: "text", 
       placeholder: "e.g., 2025-001",
